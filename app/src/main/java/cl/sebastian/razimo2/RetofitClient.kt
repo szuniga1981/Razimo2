@@ -2,32 +2,26 @@ package cl.sebastian.razimo2
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.scribe.builder.ServiceBuilder
+import org.scribe.model.OAuthRequest
+import org.scribe.model.SignatureType
+import org.scribe.model.Verb
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class RetofitClient {
+class RetrofitClient {
     companion object {
-        private const val BASE_URL = "https://www.razimo.cl/wp-json/wc/v3/products"
+        private const val BASE_URL = "https://akabab.github.io/superhero-api/api/"
 
-        fun create(): ProductService {
-            val logger = HttpLoggingInterceptor()
-            logger.level = HttpLoggingInterceptor.Level.BASIC
+        fun retrofitCliente(): RazimoApi {
+            val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(
+                    GsonConverterFactory.create()
+            ).build()
 
-            val client = OkHttpClient.Builder()
-                .connectTimeout(60000, TimeUnit.SECONDS)
-                .writeTimeout(120000, TimeUnit.SECONDS)
-                .readTimeout(120000, TimeUnit.SECONDS)
-                .retryOnConnectionFailure(true)
-                .addInterceptor(logger)
-                .build()
 
-            return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(ProductService::class.java)
+            return retrofit.create(RazimoApi::class.java)
         }
     }
+
 }

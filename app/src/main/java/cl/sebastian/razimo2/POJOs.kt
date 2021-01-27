@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Entity(tableName="pojoRazimo")
-data class Products(@PrimaryKey val id:Int, val name:String, val price:String, val images:Imagenes)
+data class Products(@PrimaryKey val id:Int, val name:String, val price:String, val description:String, @Embedded val images:Imagenes)
 data class Imagenes(val src:String)
 
 @Dao
@@ -16,8 +16,9 @@ interface  RazimoDao{
     @Query("SELECT * FROM pojoRazimo")
     fun getProducts():LiveData<List<Products>>
 
-    @Query("SELECT * FROM pojoRazimo WHERE id=code")
+    @Query("SELECT * FROM pojoRazimo WHERE id=:code")
     fun getProductsDetail (code: Int):LiveData<Products>
+
 }
 
 @Database(entities = [Products::class],version = 1)

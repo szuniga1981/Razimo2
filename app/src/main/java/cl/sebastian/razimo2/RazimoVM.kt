@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class RazimoVM:ViewModel() {
 
@@ -15,6 +16,7 @@ class RazimoVM:ViewModel() {
     private val detail=MutableLiveData<Products>()
 
     init {
+       Timber.d("RazimoVm")
         viewModelScope.launch {
             repository.getRazimoFromApi()
         }

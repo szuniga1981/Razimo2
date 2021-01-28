@@ -8,7 +8,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Query
 
 interface RazimoApi {
-    @Headers("ConsumerKey:ck_3b1182c7b77bfee4281dfcbe490b755bb30d5515","consumerSecret:cs_9966ae06878b31bc4c01c7bb792d0ef7bf9cd442")
+    @Headers({"ck_3b1182c7b77bfee4281dfcbe490b755bb30d5515","cs_9966ae06878b31bc4c01c7bb792d0ef7bf9cd442"})
 
     @GET("products" )
 

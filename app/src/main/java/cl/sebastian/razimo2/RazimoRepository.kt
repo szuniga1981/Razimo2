@@ -10,8 +10,9 @@ class RazimoRepository {
     val detailRazimo=razimoDao.getProducts()
 
     suspend fun getRazimoFromApi(){
-
+            Timber.d("buscandodatos")
         val response = RetrofitClient.retrofitCliente().getProducts()
+        Timber.d("buscandodatosdespues")
 
 
 
@@ -19,11 +20,11 @@ class RazimoRepository {
             true-> {
                 response.body()?.let {
                     razimoDao.insertProducts(it)
-                    Timber.d("getSuperHeroFromApi con :${it.size} Razimo")
+                    Timber.d(" getRazimoFromApi con :${it.size} Razimo")
                 }
             }
             false ->
-                Timber.d("getSuperHeroFromApi: ${response.errorBody()}")
+                Timber.d(" getRazimofalse: ${response.code()}")
         }
         }
         fun getProducts(code:Int):LiveData<Products> {

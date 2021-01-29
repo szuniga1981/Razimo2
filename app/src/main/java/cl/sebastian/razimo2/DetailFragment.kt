@@ -21,12 +21,12 @@ class DetailFragment :Fragment() {
         binding= FragmentDetailBinding.inflate(layoutInflater)
         viewModel.getDetail().observe(viewLifecycleOwner,{
             it?.let {
-                binding.tvPrecio.text=it.price
+                binding.tvPrecio.text="$".plus(it.price)
                 binding.tvNombreDetail.text=it.name
                 binding.tvDespripcion.text=it.description
                // binding.tvPrecio.text=it.price
                 //binding.tvProductoDetail.text=it.description
-               // binding.ivDetail.load(it.images.src)
+                binding.ivDetail.load("https://www.razimo.cl/wp-content/uploads/2020/07/logo-10-por-100.jpg")
             }
         })
         return binding.root

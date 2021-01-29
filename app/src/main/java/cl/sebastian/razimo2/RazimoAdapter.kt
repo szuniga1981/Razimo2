@@ -41,8 +41,9 @@ class RazimoAdapter: RecyclerView.Adapter<RazimoVH>() {
 }
         class RazimoVH(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
             fun bind(products: Products) {
-                binding.tvListPrd.text = products.name
-                binding.ivList.load(products.images.src)
+               // binding.tvListPrd.text = products.title.rendered
+                binding.tvPrice.text=products._price
+                //binding.ivList.load(products.images.src)
 
             }
 

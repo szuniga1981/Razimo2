@@ -1,6 +1,7 @@
 package cl.sebastian.razimo2
 
 import androidx.lifecycle.LiveData
+import retrofit2.Retrofit
 import timber.log.Timber
 
 class RazimoRepository {

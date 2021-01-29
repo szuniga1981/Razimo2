@@ -21,9 +21,9 @@ class DetailFragment :Fragment() {
         binding= FragmentDetailBinding.inflate(layoutInflater)
         viewModel.getDetail().observe(viewLifecycleOwner,{
             it?.let {
-                binding.tvPrecio.text=it.price
-                binding.tvProductoDetail.text=it.description
-                binding.ivDetail.load(it.images.src)
+               // binding.tvPrecio.text=it.price
+                //binding.tvProductoDetail.text=it.description
+               // binding.ivDetail.load(it.images.src)
             }
         })
         return binding.root

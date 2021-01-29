@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Entity(tableName="pojoRazimo")
-data class Products(@PrimaryKey val id:Int, val name:String, val price:String, val description:String, @Embedded val images:Imagenes)
-data class Imagenes(val src:String)
+//data class Products(@PrimaryKey val id:Int, val name:String, val price:String, val description:String, @Embedded val images:Imagenes)
+//data class Imagenes(val src:String)
+data class Products(@PrimaryKey val id:Int, val _price:String)
+//data class Tittle(val rendered:String)
 
 @Dao
 interface  RazimoDao{

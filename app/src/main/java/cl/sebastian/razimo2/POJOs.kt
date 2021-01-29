@@ -1,14 +1,13 @@
 package cl.sebastian.razimo2
 
 import android.app.Application
+import android.provider.MediaStore
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Entity(tableName="pojoRazimo")
-//data class Products(@PrimaryKey val id:Int, val name:String, val price:String, val description:String, @Embedded val images:Imagenes)
-//data class Imagenes(val src:String)
-data class Products(@PrimaryKey val id:Int, val _price:String)
-//data class Tittle(val rendered:String)
+data class Products(@PrimaryKey val id:Int, val name:String, val price:String, val description:String)//, @Embedded val images:Imagen)
+//data class Imagen(val src:String)
 
 @Dao
 interface  RazimoDao{
